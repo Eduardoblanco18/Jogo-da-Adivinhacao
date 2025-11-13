@@ -1,7 +1,16 @@
 #include <iostream>
+#include <cstdlib>
+#include <ctime>
 using namespace std; 
 
 int main (){
+    srand(time(NULL));
+    const int NUMERO_SECRETO = rand() %100 + 1;
+    int chute, tentativas = 0, numeros_de_tentativas;
+    char dificuladade;
+    bool acertou, maior;
+    double pontos = 1000.0;
+
     cout << "************************************" << endl;
     cout << "* BEM-VINDO AO JOGO DA ADIVINHAÇÃO *" << endl;
     cout << "************************************" << endl;
@@ -9,10 +18,7 @@ int main (){
     cout << "Escolha seu nível de dificuldade:" << endl;
     cout << "Fácil (F), Médio (M), Difícil (D)" << endl;
 
-    char dificuladade;
     cin >> dificuladade;
-
-    int numeros_de_tentativas;
 
     if(dificuladade == 'F'){
         numeros_de_tentativas = 15;
@@ -21,13 +27,6 @@ int main (){
     } else {
         numeros_de_tentativas = 5;
     }
-
-    const int NUMERO_SECRETO = 90;
-
-    int chute, tentativas = 0;
-    bool acertou, maior;
-
-    double pontos = 1000.0;
 
     do{  
         tentativas++;
