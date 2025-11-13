@@ -8,10 +8,12 @@ int main (){
 
     const int NUMERO_SECRETO = 90;
 
-    int chute;
+    int chute, tentativas = 0;
     bool acertou, maior;
 
     do{  
+        tentativas++;
+        cout << "Tentativa " << tentativas << endl;
         cout << "Qual o seu chute?" ;
         cin >> chute;
 
@@ -30,4 +32,7 @@ int main (){
             cout << "Seu chute foi menor que o número secreto!" << endl;
         }
     } while(!acertou);
+
+    cout << "Fim de jogo!"<< endl;
+    cout << "Você acertou o número secreto em " << tentativas << " tentativas!"<< endl;
 }
