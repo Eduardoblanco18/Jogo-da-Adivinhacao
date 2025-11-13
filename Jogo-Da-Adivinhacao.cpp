@@ -6,6 +6,22 @@ int main (){
     cout << "* BEM-VINDO AO JOGO DA ADIVINHAÇÃO *" << endl;
     cout << "************************************" << endl;
 
+    cout << "Escolha seu nível de dificuldade:" << endl;
+    cout << "Fácil (F), Médio (M), Difícil (D)" << endl;
+
+    char dificuladade;
+    cin >> dificuladade;
+
+    int numeros_de_tentativas;
+
+    if(dificuladade == 'F'){
+        numeros_de_tentativas = 15;
+    } else if (dificuladade == 'M') {
+        numeros_de_tentativas = 10;
+    } else {
+        numeros_de_tentativas = 5;
+    }
+
     const int NUMERO_SECRETO = 90;
 
     int chute, tentativas = 0;
@@ -36,11 +52,15 @@ int main (){
         else {
             cout << "Seu chute foi menor que o número secreto!" << endl;
         }
-    } while(!acertou);
+    } while((!acertou)&&(tentativas < numeros_de_tentativas));
 
     cout << "Fim de jogo!"<< endl;
-    cout << "Você acertou o número secreto em " << tentativas << " tentativas!"<< endl;
-    cout.precision(2);
-    cout << fixed;
-    cout << "Sua pontiação foi de " << pontos << " pontos!" << endl;
+    if(!acertou){
+        cout << "Você perdeu! Tente novamente!" << endl;
+    } else{
+        cout << "Você acertou o número secreto em " << tentativas << " tentativas!"<< endl;
+        cout.precision(2);
+        cout << fixed;
+        cout << "Sua pontiação foi de " << pontos << " pontos!" << endl;
+    }
 }
